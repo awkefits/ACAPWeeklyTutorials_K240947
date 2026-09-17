@@ -1,0 +1,63 @@
+# Kasseus Andrei Baleda
+# K240947
+
+import time
+
+start_t = time.time()
+
+class Student:
+    def __init__(self, student_id, name, year_level):
+        self.student_id = student_id
+        self.name = name
+        self.year_level = year_level
+
+    def print_details(self):
+        print(f"Student ID : {self.student_id}")
+        print(f"Name       : {self.name}")
+        print(f"Year Level : {self.year_level}")
+        print(f"Course     : {self.course}")
+
+class StudentIT(Student):
+    course = "Information Technology"
+
+    def __init__(self, student_id, name, year_level, main_language):
+        super().__init__(student_id, name, year_level)
+        self.main_language = main_language
+
+    def print_details(self):
+        super().print_details()
+        print(f"Main Programming Language: {self.main_language}") 
+
+class StudentBusiness(Student):
+    course = "Business"
+
+    def __init__(self, student_id, name, year_level, specialisation):
+        super().__init__(student_id, name, year_level)
+        self.specialisation = specialisation
+
+    def print_details(self):
+        super().print_details()
+        print(f"Specialisation: {self.specialisation}")
+
+class StudentAccounting(Student):
+    course = "Accounting"
+
+    def __init__(self, student_id, name, year_level, accreditation_body):
+        super().__init__(student_id, name, year_level)
+        self.accreditation_body = accreditation_body
+
+    def print_details(self):
+        super().print_details()
+        print(f"Accreditation Body: {self.accreditation_body}")
+
+it_student = StudentIT("K240947", "Kasseus", 2, "Python")
+business_student = StudentBusiness("K240967", "Glorygen", 2, "Marketing")
+accounting_student = StudentAccounting("K240969", "Steven", 1, "NWCCU")
+
+for s in (it_student, business_student, accounting_student):
+    print(f"----- {s.course} Student -----")
+    s.print_details()
+    print()
+
+end_time = time.time()
+print(f"Execution Time: {end_time - start_t:.6f} seconds")
